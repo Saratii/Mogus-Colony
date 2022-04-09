@@ -1,13 +1,7 @@
-import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.*;
-import java.awt.RenderingHints;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.List;
 import java.util.Random;
-import java.util.ArrayList;
 import java.awt.geom.AffineTransform;
 public class Mogus extends JPanel{
     float xPos;
@@ -38,7 +32,7 @@ public class Mogus extends JPanel{
         directionAngle += wand.nextDouble()/5.0-0.1;
     }
     public void dwa(Graphics2D g){
-        AffineTransform at = AffineTransform.getTranslateInstance(xPos, yPos);
+        AffineTransform at = AffineTransform.getTranslateInstance(xPos-fwames.get(fwameIndex/4).getIconWidth()/2, yPos-fwames.get(fwameIndex/4).getIconHeight()/2);
         at.rotate(directionAngle, fwames.get(fwameIndex/4).getIconWidth()/2, fwames.get(fwameIndex/4).getIconHeight()/2);
         g.drawImage(fwames.get(fwameIndex/4).getImage(), at, this);
         fwameIndex = (fwameIndex+1)%(4*fwames.size());
